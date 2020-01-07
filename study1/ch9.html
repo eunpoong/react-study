@@ -40,18 +40,18 @@
       }
     });
 
-    var theCircle = <Circle bgColor="#F9C240" />;
 
-    function showCircle() {
-      var colors = ["#393e41", "#e94f37", "#1c89bf", "#A1d363"];
-      var ran = Math.floor(Math.random() * colors.length);
-
-      return <Circle bgColor={colors[ran]} />;
+    var colors = ["#393e41", "#e94f37", "#1c89bf", "#A1d363", "#85FFC7", "#297373", "#ff8552", "#a40e4c"];
+    var renderData = [];
+    for (var i =0; i<colors.length; i++) {
+      var color = colors[i];
+      renderData.push(<Circle key={i + color} bgColor={color} />);
     }
+
 
     ReactDOM.render(
       <div>
-        {showCircle()}
+        {renderData}
       </div>
       , destination
     );
