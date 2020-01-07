@@ -42,9 +42,16 @@
 
     var theCircle = <Circle bgColor="#F9C240" />;
 
+    function showCircle() {
+      var colors = ["#393e41", "#e94f37", "#1c89bf", "#A1d363"];
+      var ran = Math.floor(Math.random() * colors.length);
+
+      return <Circle bgColor={colors[ran]} />;
+    }
+
     ReactDOM.render(
       <div>
-        {theCircle}
+        {showCircle()}
       </div>
       , destination
     );
