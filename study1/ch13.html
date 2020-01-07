@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>React! React! React!</title>
+  <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/2.8.1/ReactRouter.min.js"></script>
+
+<style>
+    body {
+      background-color: #FFCC00;
+      padding: 20px;
+      margin: 0;
+    }
+    h1, h2, p, ul, li {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    ul.header li {
+      display: inline;
+      list-style-type: none;
+      margin: 0;
+    }
+    ul.header {
+      background-color: #111;
+      padding: 0;
+    }
+    ul.header li a {
+      color: #FFF;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 20px;
+      display: inline-block;
+    }
+    .content {
+      background-color: #FFF;
+      padding: 20px;
+    }
+    .content h2 {
+      padding: 0;
+      margin: 0;
+    }
+    .content li {
+      margin-bottom: 10px;
+    }
+    .active {
+      background-color: #0099FF;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+    var destination = document.querySelector("#container");
+
+    var {
+      Router,
+      Route,
+      IndexRoute,
+      IndexLink,
+      Link
+    } = ReactRouter;
+
+    var App = React.createClass({
+      render: function() {
+        return (
+          <div>
+            <h1>Sample SPA</h1>
+            <ul className="header">
+              <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+              <li><Link to="/stuff" activeClassName="active">Stuff</Link></li>
+              <li><Link to="/contact" activeClassName="active">Contact</Link></li>
+            </ul>
+            <div className="content">
+              {this.props.children}
+            </div>
+          </div>
+        );
+      }
+    });
+
+    var Home = React.createClass({
+      render: function() {
+        return (
+          <div>
+            <h2>HELLO</h2>
+            <p>Home is ...</p>
+          </div>
+        );
+      }
+    });
+
+    var Stuff = React.createClass({
+      render: function() {
+        return (
+          <div>
+            <h2>Stuff</h2>
+            <p>Stuff is ...</p>
+          </div>
+        );
+      }
+    });
+
+    var Contact = React.createClass({
+      render: function() {
+        return (
+          <div>
+            <h2>Contact</h2>
+            <p>Contact is ...</p>
+          </div>
+        );
+      }
+    });
+    ReactDOM.render(
+      <Router>
+        <Route path="/" component={App}>
+          <IndexRoute component={Home} />
+          <Route path="stuff" component={Stuff} />
+          <Route path="contact" component={Contact} />
+        </Route>
+      </Router>
+      , destination
+    );
+  </script>
+</body>
+
+</html>
