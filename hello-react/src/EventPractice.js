@@ -15,7 +15,7 @@ class EventPractice extends Component {
   state = {
     message: ''
   };
-
+  /*
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -32,6 +32,24 @@ class EventPractice extends Component {
       message: ''
     });
   }
+  */
+  /*
+  메서드 바인딩은 생성자 메서드에서 하는것이 정석
+  but, 새 메서드 만들 때마다 constructor도 수정해야 함
+
+  바벨의 transform-class-properties 문법 사용하여 화살표 함수 형태로 메서드를 만들면 편하다
+ */
+  handleChange = e => {
+    this.setState({
+      message: e.target.value
+    });
+  };
+  handleClick = () => {
+    console.log('click', this.state.message);
+    this.setState({
+      message: ''
+    });
+  };
   render() {
     return (
       <div>
