@@ -4,9 +4,10 @@
  * 3.4.1.1 state 여라 값
  * 3.4.1.2 state 를 constructor에서 꺼내기
  * 3.4.1.3 this.setState에 객체 대신 함수 인자 전달하기
+ * 3.4.1.4 this.setState가 끝난 후 특정 작업 실행
  */
 
-import React, { Coponent, Component } from "react";
+import React, { Coponent, Component } from 'react';
 
 class Counter extends Component {
   state = {
@@ -24,16 +25,15 @@ class Counter extends Component {
         <button
           // onClick을 통해 버튼이 클릭되었을 떄 호출할 함수를 지정
           onClick={() => {
-            this.setState(prevState => {
-              return {
-                number: prevState.number + 1
-              };
-            });
-            // 위 코드 아래코드 똑같은 기능
-            // 아래 코드는 함수에서 바로 객체를 반환한다는 의미
-            this.setState(prevState => ({
-              number: prevState.number + 1
-            }));
+            this.setState(
+              {
+                number: number + 1
+              },
+              () => {
+                console.log('방금 setState가 호출됐습니다.');
+                console.log(this.state);
+              }
+            );
           }}
         >
           +1
