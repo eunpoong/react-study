@@ -6,16 +6,12 @@
  * 8.2.3 뒷정리 cleanup
  *
  * 8.3.2 인풋 상태 관리하기
+ *
+ * 8.7 커스텀 hooks
  */
 
 import React, { useReducer } from 'react';
-
-function reducer(state, action) {
-  return {
-    ...state,
-    [action.name]: action.value
-  };
-}
+import useInputs from './useInputs';
 
 const Info = () => {
   /*
@@ -52,14 +48,11 @@ const Info = () => {
     setNickname(e.target.value);
   };
   */
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, onChange] = useInputs({
     name: '',
     nickname: ''
   });
   const { name, nickname } = state;
-  const onChange = e => {
-    dispatch(e.target);
-  };
 
   return (
     <div>
