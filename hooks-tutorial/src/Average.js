@@ -2,6 +2,7 @@
  * 8.4 useMemo
  * 8.5 useCallback
  * 8.6 useRef
+ * 8.6.1 useRef - 로컬변수 사용하기
  */
 
 import React, { useState, useMemo, useCallback, useRef } from 'react';
@@ -14,6 +15,31 @@ const getAverage = numbers => {
 };
 
 const Average = () => {
+  /*
+    로컬변수 : 렌더링과 관계없이 바뀔 수 있는 값
+    ref 값이 바뀌어도 컴포넌트가 렌더링 되지 않는다
+    렌더링과 관련되지 않은 값을 ㅗ간리할 때만 이러한 방식...
+
+    클래스형 컴포넌트
+    id = 1
+    setId = (n) => {
+      this.id = n;
+    }
+    printId = () => {
+      console.log(this.id);
+    }
+
+    함수형 컴포넌트
+    const id = useRef(1);
+    const setId = (n) => {
+      id.current = n;
+    }
+    const printId = () => {
+      console.log(id.current);
+    }
+
+  */
+
   const [list, setList] = useState([]);
   const [number, setNumber] = useState('');
 
