@@ -1,5 +1,6 @@
 /**
  * 5.1.1 ref 예제 컴포넌트
+ * 5.2.3.1 input에 ref 달기
  */
 import React, { Component } from 'react';
 import './ValidationSample.css';
@@ -22,12 +23,16 @@ class ValidationSample extends Component {
       clicked: true,
       validated: this.state.password === '000'
     });
+    this.input.focus();
   };
 
   render() {
     return (
       <div>
         <input
+          ref={ref => {
+            this.input = ref;
+          }}
           type="password"
           value={this.state.password}
           onChange={this.handleChange}
