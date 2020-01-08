@@ -5,9 +5,11 @@
  * 3.3.3. props 기본값 설정 : defaultProps
  * 3.3.4 children
  * 3.3.5 비구조화
+ * 3.3.6 propTypes
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /*
 const MyComponent = (props) => {
@@ -34,6 +36,10 @@ const MyComponent = ({ name, children }) => {
 
 MyComponent.defaultProps = {
   name : '기본값'
+};
+
+MyComponent.propTypes = {
+  name : PropTypes.string
 }
 
 export default MyComponent;
