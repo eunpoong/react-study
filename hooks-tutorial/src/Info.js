@@ -4,11 +4,21 @@
  * 8.2.1 마운트 될 때만 실행
  * 8.2.2 특정 값 업데이트 될 떄만
  * 8.2.3 뒷정리 cleanup
+ *
+ * 8.3.2 인풋 상태 관리하기
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useReducer } from 'react';
+
+function reducer(state, action) {
+  return {
+    ...state,
+    [action.name]: action.value
+  };
+}
 
 const Info = () => {
+  /*
   const [name, setName] = useState('');
   const [nickname, setNickname] = useState('');
 
@@ -23,6 +33,7 @@ const Info = () => {
       console.log({ name }); // 업데이트 되기 직전아 값을 보여줌
     };
   }, []); // 언마운트 될 때만 cleanup 호출
+  */
   /*
     클래스형 컴포넌트라면
     componentDidUpdate(prevProps, prevState) {
@@ -31,7 +42,7 @@ const Info = () => {
       }
     }
   */
-
+  /*
   const onChangeName = e => {
     console.log('onchange1');
     setName(e.target.value);
@@ -40,12 +51,21 @@ const Info = () => {
   const onChangeNickname = e => {
     setNickname(e.target.value);
   };
+  */
+  const [state, dispatch] = useReducer(reducer, {
+    name: '',
+    nickname: ''
+  });
+  const { name, nickname } = state;
+  const onChange = e => {
+    dispatch(e.target);
+  };
 
   return (
     <div>
       <div>
-        <input value={name} onChange={onChangeName} />
-        <input value={nickname} onChange={onChangeNickname} />
+        <input name="name" value={name} onChange={onChange} />
+        <input name="nickname" value={nickname} onChange={onChange} />
       </div>
       <div>
         <div>
