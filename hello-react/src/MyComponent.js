@@ -7,9 +7,10 @@
  * 3.3.5 비구조화
  * 3.3.6 propTypes
  * 3.3.6.1 isRequired
+ * 3.3.7 클래스형 컴포넌트
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /*
@@ -25,6 +26,7 @@ const MyComponent = (props) => {
 }
 */
 
+/*
 const MyComponent = ({ name, favoriteNumber, children }) => {
 
   return (
@@ -35,6 +37,21 @@ const MyComponent = ({ name, favoriteNumber, children }) => {
     </div>
   );
 };
+*/
+
+class MyComponent extends Component {
+  render() {
+    const { name, favoriteNumber, children } = this.props;
+
+    return (
+      <div>
+        <div>이름 : {name}</div>
+        <div>children : {children}</div>
+        <div>숫자 : {favoriteNumber}</div>
+      </div>
+    );
+  }
+}
 
 MyComponent.defaultProps = {
   name : '기본값'
