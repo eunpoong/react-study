@@ -22,7 +22,7 @@ const Info = () => {
       console.log('cleanup');
       console.log({ name }); // 업데이트 되기 직전아 값을 보여줌
     };
-  });
+  }, []); // 언마운트 될 때만 cleanup 호출
   /*
     클래스형 컴포넌트라면
     componentDidUpdate(prevProps, prevState) {
