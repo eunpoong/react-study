@@ -4,6 +4,7 @@
  * 6.4 응용
  * 6.4.1 초기상태 설정
  * 6.4.2 데이터 추가 기능
+ * 6.4.3 데이터 제거 기능
  */
 
 import React, { useState } from 'react';
@@ -21,7 +22,16 @@ const IterationSample = () => {
   ]);
   const [inputText, setInputText] = useState('');
   const [nextId, setNextId] = useState(5);
-  const nameList = names.map(name => <li key={name.id}>{name.text}</li>);
+  const nameList = names.map(name => (
+    <li
+      key={name.id}
+      onDoubleClick={() => {
+        onRemove(name.id);
+      }}
+    >
+      {name.text}
+    </li>
+  ));
   const onChange = e => setInputText(e.target.value);
   const onClick = () => {
     const nextNames = names.concat({
@@ -31,6 +41,10 @@ const IterationSample = () => {
     setNextId(nextId + 1);
     setNames(nextNames);
     setInputText('');
+  };
+  const onRemove = id => {
+    const nextNames = names.filter(name => name.id !== id);
+    setNames(nextNames);
   };
   return (
     <>
