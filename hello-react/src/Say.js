@@ -2,6 +2,7 @@
  * 3.4.2 함수형 컴포넌트에서 useState 사용하기
  * 3.4.2.1 배열 비구조화 할당
  * 3.4.2.2 useState 사용하기
+ * 3.4.2.3 한 컴포넌트에서 useState 여러번 사용하기
  */
 
 /*
@@ -24,11 +25,37 @@ const Say = () => {
     setMessage('안녕히 가세요!');
   };
 
+  const [color, setColor] = useState('black');
+
   return (
     <div>
       <button onClick={onClickEnter}>입장</button>
       <button onClick={onClickLeave}>퇴장</button>
-      <div>{message}</div>
+      <h1 style={{ color }}>{message}</h1>
+      <button
+        style={{ color: 'red' }}
+        onClick={() => {
+          setColor('red');
+        }}
+      >
+        빨간색
+      </button>
+      <button
+        style={{ color: 'green' }}
+        onClick={() => {
+          setColor('green');
+        }}
+      >
+        초록색
+      </button>
+      <button
+        style={{ color: 'blue' }}
+        onClick={() => {
+          setColor('blue');
+        }}
+      >
+        파란색
+      </button>
     </div>
   );
 };
