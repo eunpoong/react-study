@@ -6,6 +6,7 @@
  * 3.3.4 children
  * 3.3.5 비구조화
  * 3.3.6 propTypes
+ * 3.3.6.1 isRequired
  */
 
 import React from 'react';
@@ -24,12 +25,13 @@ const MyComponent = (props) => {
 }
 */
 
-const MyComponent = ({ name, children }) => {
+const MyComponent = ({ name, favoriteNumber, children }) => {
 
   return (
     <div>
       <div>이름 : {name}</div>
       <div>children : {children}</div>
+      <div>숫자 : {favoriteNumber}</div>
     </div>
   );
 };
@@ -39,7 +41,8 @@ MyComponent.defaultProps = {
 };
 
 MyComponent.propTypes = {
-  name : PropTypes.string
+  name : PropTypes.string,
+  favoriteNumber: PropTypes.number.isRequired
 }
 
 export default MyComponent;
