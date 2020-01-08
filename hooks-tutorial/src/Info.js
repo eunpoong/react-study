@@ -1,12 +1,18 @@
 /**
  * 8.1.1 useState 여러번 사용
+ * 8.2 useEffect
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Info = () => {
   const [name, setName] = useState('');
   const [nickname, setNickname] = useState('');
+
+  useEffect(() => {
+    console.log('렌더링이 완료되었습니다.');
+    console.log({ name, nickname });
+  });
 
   const onChangeName = e => {
     setName(e.target.value);
