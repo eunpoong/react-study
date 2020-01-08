@@ -1,6 +1,7 @@
 /**
  * 8.1.1 useState 여러번 사용
  * 8.2 useEffect
+ * 8.2.1 마운트 될 때만 실행
  */
 
 import React, { useState, useEffect } from 'react';
@@ -12,7 +13,7 @@ const Info = () => {
   useEffect(() => {
     console.log('렌더링이 완료되었습니다.');
     console.log({ name, nickname });
-  });
+  }, []);
 
   const onChangeName = e => {
     setName(e.target.value);
