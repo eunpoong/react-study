@@ -7,6 +7,8 @@
  * 4.2.3 임의 메서드 만들기
  * 4.2.3.1 기본방식
  * 4.2.4 input 여러개
+ *
+ * 4.2.5 onKeyPress 이벤트 핸들링
  */
 
 import React, { Component } from 'react';
@@ -52,6 +54,12 @@ class EventPractice extends Component {
       message: ''
     });
   };
+  handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      this.handleClick();
+    }
+  };
+
   render() {
     return (
       <div>
@@ -68,6 +76,7 @@ class EventPractice extends Component {
           name="message"
           placeholder="아무거나 입력"
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
         />
         <button onClick={this.handleClick}>확인</button>
       </div>
