@@ -1,5 +1,6 @@
 /**
  * 7.3 라이프사이클 메서드
+ * 7.3.3 에러 잡아내기
  */
 
 import React, { Component } from 'react';
@@ -68,6 +69,7 @@ class LifeCycleSample extends Component {
 
     return (
       <div>
+        {this.props.missing.value}
         <h1 style={style} ref={ref => (this.myRef = ref)}>
           {this.state.number}
         </h1>
