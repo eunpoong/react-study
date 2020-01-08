@@ -2,19 +2,16 @@
  * 3.4 state
  * 3.4.1 클래스형 컴포넌트의 state
  * 3.4.1.1 state 여라 값
+ * 3.4.1.2 state 를 constructor에서 꺼내기
  */
 
 import React, { Coponent, Component } from "react";
 
 class Counter extends Component {
-  constructor(props) {
-    super(props);
-    // state의 초기값 설정하기
-    this.state = {
-      number: 0,
-      fixedNumber: 0
-    };
-  }
+  state = {
+    number: 0,
+    fixedNumber: 0
+  };
   render() {
     const { number, fixedNumber } = this.state;
 
