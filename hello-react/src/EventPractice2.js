@@ -4,6 +4,7 @@
 
 import React, { useState } from 'react';
 const EventPractice = () => {
+  /*
   const [username, setUsername] = useState('');
   const [message, setMessage] = useState('');
   const onChangeUsername = e => setUsername(e.target.value);
@@ -20,6 +21,34 @@ const EventPractice = () => {
       onClick();
     }
   };
+  */
+
+  //useState 상태에 문자열이 아닌 객체
+  const [form, setForm] = useState({
+    username: '',
+    message: ''
+  });
+
+  const { username, message } = form;
+  const onChange = e => {
+    const nextForm = {
+      ...form,
+      [e.target.name]: e.target.value
+    };
+    setForm(nextForm);
+  };
+  const onClick = () => {
+    console.log('username', username, 'message', message);
+    setForm({
+      username: '',
+      message: ''
+    });
+  };
+  const onKeyPress = e => {
+    if (e.key === 'Enter') {
+      onClick();
+    }
+  };
 
   return (
     <div>
@@ -29,14 +58,14 @@ const EventPractice = () => {
         name="username"
         placeholder="사용자명"
         value={username}
-        onChange={onChangeUsername}
+        onChange={onChange}
       />
       <input
         type="text"
         name="message"
         placeholder="아무거나 입력"
         value={message}
-        onChange={onChangeMessage}
+        onChange={onChange}
         onKeyPress={onKeyPress}
       />
       <button onClick={onClick}>확인</button>
