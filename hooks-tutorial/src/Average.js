@@ -1,0 +1,46 @@
+/**
+ * 8.4 useMemo
+ */
+
+import React, { useState, useMemo } from 'react';
+
+const getAverage = numbers => {
+  console.log('계산 중');
+  if (numbers.length === 0) return 0;
+  const sum = numbers.reduce((a, b) => a + b);
+  return sum / numbers.length;
+};
+
+const Average = () => {
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState('');
+  const onChange = e => {
+    setNumber(e.target.value);
+  };
+  const onInsert = e => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber('');
+  };
+
+  // 숫자를 onInsert 할 때 뿐만아니라  입력 중 (onChange)에도 getAverage가 호출 됨
+  // 인풋 내용이 바뀔 때는 평균값을 계산할 필요가 없는데 렌더링 할때마다 호출 됨
+  // 렌더링 과정에서 특정 값이 바뀌었을 때만 연산을 실행, 원하는 값이 바뀌지 않았다면 이전 연산 결과를 다시 사용하는 방식
+  // useMemo(() => function, input)
+  const avg = useMemo(() => getAverage(list), [list]);
+
+  return (
+    <div>
+      <input value={number} onChange={onChange} />
+      <button onClick={onInsert}>등록</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}>{value}</li>
+        ))}
+      </ul>
+      <div>평균값 : {avg}</div>
+    </div>
+  );
+};
+
+export default Average;
