@@ -5,6 +5,7 @@
  * 11. 컴포넌트 성능 최적화
  * 11.1 많은 데이터 렌더링하기
  * 11.4 React.memo를 사용하여 컴포넌트 성능 최적화
+ * 11.5.1 useState의 함수형 업데이트
  *
  */
 
@@ -37,41 +38,32 @@ const App = () => {
 
   const nextId = useRef(2501);
 
-  const onInsert = useCallback(
-    text => {
-      const todo = {
-        id: nextId.current,
-        text,
-        checked: false,
-      };
-      setTodos(todos.concat(todo));
-      nextId.current += 1;
-    },
-    [todos],
-  );
+  const onInsert = useCallback(text => {
+    const todo = {
+      id: nextId.current,
+      text,
+      checked: false,
+    };
+    setTodos(todos => todos.concat(todo));
+    nextId.current += 1;
+  }, []);
 
-  const onRemove = useCallback(
-    id => {
-      setTodos(todos.filter(todo => todo.id !== id));
-    },
-    [todos],
-  );
+  const onRemove = useCallback(id => {
+    setTodos(todos => todos.filter(todo => todo.id !== id));
+  }, []);
 
-  const onToggle = useCallback(
-    id => {
-      setTodos(
-        todos.map(todo =>
-          todo.id === id
-            ? {
-                ...todo,
-                checked: !todo.checked,
-              }
-            : todo,
-        ),
-      );
-    },
-    [todos],
-  );
+  const onToggle = useCallback(id => {
+    setTodos(todos =>
+      todos.map(todo =>
+        todo.id === id
+          ? {
+              ...todo,
+              checked: !todo.checked,
+            }
+          : todo,
+      ),
+    );
+  }, []);
 
   return (
     <TodoTemplate>
