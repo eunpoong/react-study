@@ -1,8 +1,10 @@
 /**
  * 12. immer 불변성 유지
  * 12.1.2 immer 사용하지 않고 불변성 유지
+ * 12.1.4 immer 적용하기
  */
 import React, { useRef, useCallback, useState } from 'react';
+import produce from 'immer';
 
 const App = () => {
   const nextId = useRef(1);
@@ -15,10 +17,15 @@ const App = () => {
   const onChange = useCallback(
     e => {
       const { name, value } = e.target;
-      setForm({
+      /*setForm({
         ...form,
         [name]: [value]
-      });
+      });*/
+      setForm(
+        produce(form, draft => {
+          draft[name] = value;
+        })
+      );
     },
     [form]
   );
@@ -31,22 +38,38 @@ const App = () => {
         name: form.name,
         username: form.username
       };
-      setData({ ...data, array: data.array.concat(info) });
+      // setData({ ...data, array: data.array.concat(info) });
+      setData(
+        produce(data, draft => {
+          draft.array.push(info);
+        })
+      );
       setForm({ name: '', username: '' });
       nextId.current += 1;
     },
     [data, form.name, form.username]
   );
 
-  const onRemove = useCallback(id => {
-    setData(
+  const onRemove = useCallback(
+    id => {
+      /*setData(
       {
         ...data,
         array: data.array.filter(info => info.id !== id)
       },
       [data]
-    );
-  });
+    );*/
+      setData(
+        produce(data, draft => {
+          draft.array.splice(
+            draft.array.findIndex(info => info.id === id),
+            1
+          );
+        })
+      );
+    },
+    [data]
+  );
 
   return (
     <div>
