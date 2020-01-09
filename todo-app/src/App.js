@@ -7,6 +7,7 @@
  * 11.4 React.memo를 사용하여 컴포넌트 성능 최적화
  * 11.5.1 useState의 함수형 업데이트
  * 11.5.2 useReducer 사용하기
+ * 11.7 TodoList 컴포넌트 최적화
  *
  */
 
