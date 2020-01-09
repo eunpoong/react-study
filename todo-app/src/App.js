@@ -9,6 +9,7 @@
  * 11.5.2 useReducer 사용하기
  * 11.7 TodoList 컴포넌트 최적화
  *
+ * 11.8 react-virtualized 사용한 렌더링 최적화
  */
 
 import React, { useReducer, useRef, useCallback } from 'react';
