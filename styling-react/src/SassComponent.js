@@ -1,5 +1,6 @@
 /**
  * 9.2 Sass 사용하기
+ * 9.2.1 utils 함수 분리하기
  */
 import React from 'react';
 import './SassComponent.scss';
