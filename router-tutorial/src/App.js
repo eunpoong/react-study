@@ -1,26 +1,19 @@
+/**
+ * 13.2.2 프로젝트에 라우터 적용
+ * 13.2.4 Route 컴포넌트로 특정 주소에 컴포넌트 연결
+ */
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route } from 'react-router-dom';
+import About from './About';
+import Home from './Home';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Route exact={true} path="/" component={Home} />
+      <Route exact={true} path="/about" component={About} />
     </div>
   );
-}
+};
 
 export default App;
