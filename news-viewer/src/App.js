@@ -1,37 +1,13 @@
 /**
  * 14.2 axios로 API 호출해서 데이터 받아오기 - async 적용
+ * 14.4 뉴스 뷰어 UI 만들기
  */
 
 import React, { useState } from 'react';
-import axios from 'axios';
+import NewsList from './components/NewsList';
 
 const App = () => {
-  const [data, setData] = useState(null);
-  const onClick = async () => {
-    try {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/todos/1'
-      );
-      setData(response.data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  return (
-    <div>
-      <div>
-        <button onClick={onClick}>불러오기</button>
-      </div>
-      {data && (
-        <textarea
-          rows={7}
-          value={JSON.stringify(data, null, 2)}
-          readOnly={true}
-        />
-      )}
-    </div>
-  );
+  return <NewsList />;
 };
 
 export default App;
