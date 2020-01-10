@@ -2,6 +2,7 @@
  * 13.4.1 URL 파라미터
  */
 import React from 'react';
+import WithRouterSample from './WithRouterSample';
 
 const data = {
   velopert: {
@@ -27,6 +28,7 @@ const Profile = ({ match }) => {
         {username}({profile.name})
       </h3>
       <p>{profile.description}</p>
+      <WithRouterSample />
     </div>
   );
 };
