@@ -8,7 +8,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
-import Profile from './Profile';
+import Profiles from './Profiles';
 
 const App = () => {
   return (
@@ -20,11 +20,14 @@ const App = () => {
         <li>
           <Link to="/about">About</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/profile/velopert">velopert 프로필</Link>
         </li>
         <li>
           <Link to="/profile/gildong">gildong 프로필</Link>
+        </li> */}
+        <li>
+          <Link to="/profiles">프로필</Link>
         </li>
       </ul>
       <hr />
@@ -34,7 +37,8 @@ const App = () => {
       <Route exact={true} path="/info" component={About} />
       */}
       <Route exact={true} path={['/about', '/info']} component={About} />
-      <Route exact={true} path="/profile/:username" component={Profile} />
+      {/* <Route exact={true} path="/profile/:username" component={Profile} /> */}
+      <Route path="/profiles" component={Profiles} />
     </div>
   );
 };
