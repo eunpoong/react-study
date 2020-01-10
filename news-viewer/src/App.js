@@ -3,6 +3,7 @@
  * 14.4 뉴스 뷰어 UI 만들기
  * 14.5 데이터 연동하기
  * 14.6 카테고리 기능 구현
+ * 14.6.2 API 호출할 때 카테고리 지정하기
  */
 
 import React, { useState, useCallback } from 'react';

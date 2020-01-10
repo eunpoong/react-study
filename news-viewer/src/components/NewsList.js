@@ -28,7 +28,7 @@ const NewsListBlock = styled.div`
   }
 `;
 
-const NewsList = () => {
+const NewsList = ({ category }) => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -37,8 +37,10 @@ const NewsList = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
+        const apiKey = 'e9be25ff247a4d0bbafde9b2e2cef3ba';
+        const query = category === 'all' ? '' : `&category=${category}`;
         const response = await axios.get(
-          'https://newsapi.org/v2/top-headlines?country=kr&apiKey=e9be25ff247a4d0bbafde9b2e2cef3ba'
+          `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}${query}`
         );
         console.log(response.status);
         setArticles(response.data.articles);
@@ -49,7 +51,7 @@ const NewsList = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [category]); // category 값이 바뀔 때마다 뉴스 불러와야해서 useEffect의 의존배열(두번째파라미터)에 category 넣음
 
   // 대기중일떄
   if (loading) {
