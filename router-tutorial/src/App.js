@@ -8,16 +8,23 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
+import Profile from './Profile';
 
 const App = () => {
   return (
     <div>
       <ul>
         <li>
-          <Link to="/">Hone</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/profile/velopert">velopert 프로필</Link>
+        </li>
+        <li>
+          <Link to="/profile/gildong">gildong 프로필</Link>
         </li>
       </ul>
       <hr />
@@ -27,6 +34,7 @@ const App = () => {
       <Route exact={true} path="/info" component={About} />
       */}
       <Route exact={true} path={['/about', '/info']} component={About} />
+      <Route exact={true} path="/profile/:username" component={Profile} />
     </div>
   );
 };
