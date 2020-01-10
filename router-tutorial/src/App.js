@@ -9,6 +9,7 @@ import { Route, Link } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
 import Profiles from './Profiles';
+import HistorySample from './HistorySample';
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
       <Route exact={true} path={['/about', '/info']} component={About} />
       {/* <Route exact={true} path="/profile/:username" component={Profile} /> */}
       <Route path="/profiles" component={Profiles} />
+      <Route path="/history" component={HistorySample} />
     </div>
   );
 };
