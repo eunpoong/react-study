@@ -14,6 +14,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import NewsItem from './NewsItem';
 import axios from 'axios';
+import usePromise from '../lib/usePromise';
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
@@ -29,7 +30,7 @@ const NewsListBlock = styled.div`
 `;
 
 const NewsList = ({ category }) => {
-  const [articles, setArticles] = useState(null);
+  /* const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -52,18 +53,28 @@ const NewsList = ({ category }) => {
     };
     fetchData();
   }, [category]); // category 값이 바뀔 때마다 뉴스 불러와야해서 useEffect의 의존배열(두번째파라미터)에 category 넣음
+  */
+
+  const [loading, response, error] = usePromise(() => {
+    const apiKey = 'e9be25ff247a4d0bbafde9b2e2cef3ba';
+    const query = category === 'all' ? '' : `&category=${category}`;
+    return axios.get(
+      `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}${query}`
+    );
+  }, [category]);
 
   // 대기중일떄
   if (loading) {
     return <NewsListBlock>대기 중...</NewsListBlock>;
   }
 
-  // 아직 articles 값이 설정되지 않았을 때
-  if (!articles) {
+  // 아직 response 값이 설정되지 않았을 때
+  if (!response) {
     return null;
   }
 
-  // articles 값이 유효할 때
+  // response 값이 유효할 때
+  const { articles } = response.data;
   return (
     <NewsListBlock>
       {articles.map(article => (

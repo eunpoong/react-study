@@ -5,6 +5,7 @@
  * 14.6 카테고리 기능 구현
  * 14.6.2 API 호출할 때 카테고리 지정하기
  * 14.7 리액트 라우터 적용하기
+ * 14.8 usePromise 커스텀 Hook 만들기
  */
 
 import React from 'react';
