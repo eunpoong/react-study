@@ -1,3 +1,9 @@
+/**
+ * 16.2.7 스토어 만들기
+ */
+
+import { createStore } from 'redux';
+
 // DOM 노드 레퍼런스
 const divToggle = document.querySelector('.toggle');
 const counter = document.querySelector('h1');
@@ -5,7 +11,7 @@ const btnIncrease = document.querySelector('#increase');
 const btnDecrease = document.querySelector('#decrease');
 
 // 액션 이름
-const TOGGELE_SWITCH = 'TOGGLE_SWITCH';
+const TOGGLE_SWITCH = 'TOGGLE_SWITCH';
 const INCREASE = 'INCREASE';
 const DECREASE = 'DECREASE';
 
@@ -44,3 +50,40 @@ function reducer(state = initialState, action) {
       return state;
   }
 }
+
+const store = createStore(reducer);
+
+/**
+ * 16.2.8 render 함수 만들기
+ */
+const render = () => {
+  const state = store.getState();
+
+  if (state.toggle) {
+    divToggle.classList.add('active');
+  } else {
+    divToggle.classList.remove('active');
+  }
+
+  counter.innerText = state.counter;
+};
+
+render();
+
+/**
+ * 16.2.9 구독하기
+ */
+store.subscribe(render);
+
+/**
+ * 16.2.10 액션 발생시키기
+ */
+divToggle.onclick = () => {
+  store.dispatch(toggleSwitch());
+};
+btnIncrease.onclick = () => {
+  store.dispatch(increase(1));
+};
+btnDecrease.onclick = () => {
+  store.dispatch(decrease());
+};
