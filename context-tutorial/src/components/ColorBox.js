@@ -1,5 +1,6 @@
 /**
  * 15.2.2 Consumer 사용하기
+ * 15.4.1 useContext Hook 사용하기
  */
 
 /*
@@ -8,8 +9,8 @@
 
 */
 
-import React from 'react';
-import { ColorConsumer } from '../contexts/color';
+import React, { useContext } from 'react';
+import ColorContext from '../contexts/color';
 
 /*
   Function as a child  또는 Render Props
@@ -17,27 +18,25 @@ import { ColorConsumer } from '../contexts/color';
 
 */
 const ColorBox = () => {
+  const { state } = useContext(ColorContext);
+
   return (
-    <ColorConsumer>
-      {({ state }) => (
-        <>
-          <div
-            style={{
-              width: '64px',
-              height: '64px',
-              background: state.color
-            }}
-          />
-          <div
-            style={{
-              width: '32px',
-              height: '32px',
-              background: state.subcolor
-            }}
-          />
-        </>
-      )}
-    </ColorConsumer>
+    <>
+      <div
+        style={{
+          width: '64px',
+          height: '64px',
+          background: state.color
+        }}
+      />
+      <div
+        style={{
+          width: '32px',
+          height: '32px',
+          background: state.subcolor
+        }}
+      />
+    </>
   );
 };
 
