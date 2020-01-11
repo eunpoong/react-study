@@ -1,0 +1,11 @@
+{
+  "name": "vanilla-redux",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^4.0.5"
+  }
+}
