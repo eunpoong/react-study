@@ -1,6 +1,7 @@
 /**
  * 15.2 Context API 사용법 익히기
  * 15.2.3 Provider
+ * 15.3 동적 Conetxt 사용하기
  */
 
 /*
@@ -14,15 +15,15 @@
 
 import React from 'react';
 import ColorBox from './components/ColorBox';
-import ColorContext from './contexts/color';
+import { ColorProvider } from './contexts/color';
 
 const App = () => {
   return (
-    <ColorContext.Provider value={{ color: 'red' }}>
+    <ColorProvider>
       <div>
         <ColorBox />
       </div>
-    </ColorContext.Provider>
+    </ColorProvider>
   );
 };
 
