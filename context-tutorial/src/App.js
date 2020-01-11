@@ -2,6 +2,7 @@
  * 15.2 Context API 사용법 익히기
  * 15.2.3 Provider
  * 15.3 동적 Conetxt 사용하기
+ * 15.3.3 색상 선택 컴포넌트 만들기
  */
 
 /*
@@ -16,11 +17,13 @@
 import React from 'react';
 import ColorBox from './components/ColorBox';
 import { ColorProvider } from './contexts/color';
+import SelectColors from './components/SelectColors';
 
 const App = () => {
   return (
     <ColorProvider>
       <div>
+        <SelectColors />
         <ColorBox />
       </div>
     </ColorProvider>
