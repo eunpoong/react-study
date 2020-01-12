@@ -2,7 +2,7 @@
  * 18.3.1.4 웹 요청 비동기 작업
  */
 
-import { handelActions } from 'redux-actions';
+import { handleActions } from 'redux-actions';
 import * as api from '../lib/api';
 
 // 액션 타입을 선언
@@ -64,7 +64,7 @@ const initialState = {
   users: null
 };
 
-const smaple = handleActions(
+const sample = handleActions(
   {
     [GET_POST]: state => ({
       ...state,
@@ -114,4 +114,4 @@ const smaple = handleActions(
   initialState
 );
 
-export default smaple;
+export default sample;
