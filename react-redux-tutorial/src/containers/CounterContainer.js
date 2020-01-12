@@ -1,14 +1,18 @@
+/**
+ * 17.7.1 useSelecotr로 상태 조회하기
+ */
+
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Counter from '../components/Counter';
 import { increase, decrease } from '../modules/counter';
 
-const CounterContainer = ({ number, increase, decrease }) => {
-  return (
-    <Counter number={number} onIncrease={increase} onDecrease={decrease} />
-  );
+const CounterContainer = () => {
+  const number = useSelector(state => state.counter.number);
+  return <Counter number={number} />;
 };
+
+export default CounterContainer;
 
 /*
 const mapStateToProps = state => ({
@@ -58,7 +62,7 @@ export default connect(
 */
 
 // 두번째 파라미터를 아예 객체 형태로 넣어주면 connect 함수가 내부적으로 bindActionCreators 작업을 대신해줌
-export default connect(
+/*export default connect(
   state => ({
     number: state.counter.number
   }),
@@ -67,3 +71,4 @@ export default connect(
     decrease
   }
 )(CounterContainer);
+*/
