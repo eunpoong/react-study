@@ -1,15 +1,20 @@
 /**
  * 18.1 작업 환경 준비 - 카운터 컨테이너 컴포넌트
+ * 18.3.1.3 Thunk 생성 함수 만들기 - 컨테이너 액션 생성 함수 수정
  */
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { increase, decrease } from '../modules/counter';
+import { increaseAsync, decreaseAsync } from '../modules/counter';
 import Counter from '../components/Counter';
 
-const CounterContainer = ({ number, increase, decrease }) => {
+const CounterContainer = ({ number, increaseAsync, decreaseAsync }) => {
   return (
-    <Counter number={number} onIncrease={increase} onDecrease={decrease} />
+    <Counter
+      number={number}
+      onIncrease={increaseAsync}
+      onDecrease={decreaseAsync}
+    />
   );
 };
 
@@ -18,7 +23,7 @@ export default connect(
     number: state.counter
   }),
   {
-    increase,
-    decrease
+    increaseAsync,
+    decreaseAsync
   }
 )(CounterContainer);
