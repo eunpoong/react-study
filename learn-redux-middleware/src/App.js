@@ -3,13 +3,13 @@
  * 18.3.1.5 리팩토링
  */
 import React from 'react';
-import CounterContainder from './containers/CounterContainer';
-//import SampleContainer from './containers/SampleContainer';
+//import CounterContainder from './containers/CounterContainer';
+import SampleContainer from './containers/SampleContainer';
 
 const App = () => {
   return (
     <div>
-      <CounterContainder />
+      <SampleContainer />
     </div>
   );
 };
