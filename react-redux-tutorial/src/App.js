@@ -8,6 +8,7 @@
  * 17.6 리덕스 편하게 사용하기
  * 17.6.1 redux-actions
  * 17.6.2 immer
+ * 17.7 Hooks를 사용하여 컨테이너 컴포넌트 만들기
  */
 
 import React from 'react';

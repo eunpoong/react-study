@@ -10,7 +10,7 @@ const TodoItem = ({ todo, onToggle, onRemove }) => {
         readOnly={true}
       />
       <span style={{ textDecoration: todo.done ? 'line-through' : 'none' }}>
-        {todo.text}}
+        {todo.text}
       </span>
       <button onClick={() => onRemove(todo.id)}>삭제</button>
     </div>
