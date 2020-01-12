@@ -5,6 +5,8 @@
  * 17.3.1 counter 모듈 작성
  * 17.3.2 todos 모듈 만들기
  * 17.5 컨테이너 컴포넌트 만들기
+ * 17.6 리덕스 편하게 사용하기
+ * 17.6.1 redux-actions
  */
 
 import React from 'react';
