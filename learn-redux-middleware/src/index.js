@@ -4,14 +4,16 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './modules';
+import loggerMiddleware from './lib/loggerMiddleware';
 
-const store = createStore(rootReducer);
+// 미들웨어는 스토어를 생성하는 과정에서 적용한다
+const store = createStore(rootReducer, applyMiddleware(loggerMiddleware));
 
 ReactDOM.render(
   <Provider store={store}>
