@@ -4,6 +4,7 @@
  * 18.3.1.2 redux-thunk 미들웨어 적용하기
  *
  * 18.3.2.2 Redux-saga - 스토어에 redux-saga 미들웨어 적용
+ * 18.3.2.2 Redux-saga - 리덕스 개발자 도구 적용
  */
 
 import React from 'react';
@@ -18,13 +19,14 @@ import rootReducer, { rootSaga } from './modules';
 import { createLogger } from 'redux-logger';
 import ReduxThunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 // 미들웨어는 스토어를 생성하는 과정에서 적용한다
 const logger = createLogger();
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   rootReducer,
-  applyMiddleware(logger, ReduxThunk, sagaMiddleware)
+  composeWithDevTools(applyMiddleware(logger, ReduxThunk, sagaMiddleware))
 );
 sagaMiddleware.run(rootSaga);
 
