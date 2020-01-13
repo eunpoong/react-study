@@ -3,13 +3,15 @@
  * 19.2 React.lazy 와 Suspense를 통한 컴포넌트 코드 스플리팅
  * 19.2.1 state를 사용한 코드 스플리팅
  * 19.2.2 React.lazy와 Suspense 사용하기
+ * 19.2.3 Loadable Components를 통한 코드 스플리팅
  */
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 //import notify from './notify';
+import loadable from '@loadable/component';
 
-const SplitMe = React.lazy(() => import('./SplitMe'));
+const SplitMe = loadable(() => import('./SplitMe'));
 
 /*function App() {
   const onClick = () => {
@@ -67,9 +69,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p onClick={onClick}>Hello React!</p>
-        <Suspense fallback={<div>loading...</div>}>
-          {visible && <SplitMe />}
-        </Suspense>
+        {/* <Suspense fallback={<div>loading...</div>}> */}
+        {visible && <SplitMe />}
+        {/* </Suspense> */}
       </header>
     </div>
   );
