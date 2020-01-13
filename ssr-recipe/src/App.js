@@ -14,6 +14,7 @@
  * 20.4.7 User, UserContainer 컴포넌트 준비하기
  * 20.4.8 redux-saga를 위한 서버 사이드 렌더링 작업
  * 20.4.9 usePreloader Hook 만들어서 사용하기
+ * 20.5 서버사이드 렌더링과 코드 스플리팅
  */
 import React from 'react';
 import { Route } from 'react-router-dom';
