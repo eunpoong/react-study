@@ -6,12 +6,14 @@
  * 20.3.5 정적 파일 제공하기
  * 20.4 데이터 로딩
  * 20.4.1 redux-thunk 코드 준비하기
+ * 20.4.2 Users, UsersContainer 컴포넌트 준비하기
  */
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Menu from './components/Menu';
 import RedPage from './pages/RedPage';
 import BluePage from './pages/BluePage';
+import UsersPage from './pages/UsersPage';
 
 const App = () => {
   return (
@@ -20,6 +22,7 @@ const App = () => {
       <hr />
       <Route path="/red" component={RedPage} />
       <Route path="/blue" component={BluePage} />
+      <Route path="/users" component={UsersPage} />
     </div>
   );
 };

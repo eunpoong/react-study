@@ -18,6 +18,7 @@ export const getUsers = () => async dispatch => {
     const response = await axios.get(
       'https://jsonplaceholder.typicode.com/users'
     );
+    dispatch(getUsersSuccess(response));
   } catch (e) {
     dispatch(getUsersFailure(e));
     throw e;
@@ -27,7 +28,7 @@ export const getUsers = () => async dispatch => {
 const initialState = {
   users: null,
   user: null,
-  laoding: {
+  loading: {
     users: false,
     user: false
   },
@@ -40,11 +41,34 @@ const initialState = {
 function users(state = initialState, action) {
   switch (action.type) {
     case GET_USERS_PENDING:
-      return { ...state, loading: { ...state.loading, users: true } };
-    case GET_USER_SUCCESS:
-      return { ...state, loading: { ...state.loading, user:false}, user:action.payload:data};
+      return {
+        ...state,
+        loading: {
+          ...state.loading,
+          users: true
+        }
+      };
+    case GET_USERS_SUCCESS:
+      return {
+        ...state,
+        loading: {
+          ...state.loading,
+          users: false
+        },
+        users: action.payload.data
+      };
     case GET_USERS_FAILURE:
-      return { ...state, loading: { ...state.loading, user:false}, error: {...state.error, user:action.payload}};
+      return {
+        ...state,
+        loading: {
+          ...state.loading,
+          users: false
+        },
+        error: {
+          ...state.error,
+          users: action.payload
+        }
+      };
     default:
       return state;
   }
