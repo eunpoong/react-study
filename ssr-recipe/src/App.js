@@ -10,6 +10,8 @@
  * 20.4.3 PreloadContext 만들기
  * 20.4.4 서버에서 리덕스 설정 및 PreloadContext 사용하기
  * 20.4.5 스크립트로 스토어 초기 상태 주입하기
+ * 20.4.6 redux-saga 코드 준비하기
+ * 20.4.7 User, UserContainer 컴포넌트 준비하기
  */
 import React from 'react';
 import { Route } from 'react-router-dom';
