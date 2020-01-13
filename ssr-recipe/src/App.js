@@ -1,6 +1,7 @@
 /**
  * 20 서버사이드 렌더링
  * 20.2 프로젝트 준비하기
+ * 20.3 서버사이트 렌더링 구현하기
  */
 import React from 'react';
 import { Route } from 'react-router-dom';
