@@ -16,6 +16,7 @@
  * 20.4.9 usePreloader Hook 만들어서 사용하기
  * 20.5 서버사이드 렌더링과 코드 스플리팅
  * 20.5.1 라우터 컴포넌트 스플리팅하기
+ * 20.5.2 웹팩과 babel 플로그인 적용
  */
 import React from 'react';
 import { Route } from 'react-router-dom';
