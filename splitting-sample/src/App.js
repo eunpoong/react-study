@@ -2,11 +2,14 @@
  * 19.1 자바스크립트 함수 비동기 로딩
  * 19.2 React.lazy 와 Suspense를 통한 컴포넌트 코드 스플리팅
  * 19.2.1 state를 사용한 코드 스플리팅
+ * 19.2.2 React.lazy와 Suspense 사용하기
  */
-import React, { Component } from 'react';
+import React, { useState, Suspense } from 'react';
 import logo from './logo.svg';
 import './App.css';
 //import notify from './notify';
+
+const SplitMe = React.lazy(() => import('./SplitMe'));
 
 /*function App() {
   const onClick = () => {
@@ -28,7 +31,7 @@ import './App.css';
   );
 }*/
 
-class App extends Component {
+/*class App extends Component {
   state = {
     SplitMe: null
   };
@@ -51,6 +54,25 @@ class App extends Component {
       </div>
     );
   }
+}*/
+
+function App() {
+  const [visible, setVisible] = useState(false);
+  const onClick = () => {
+    setVisible(true);
+  };
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p onClick={onClick}>Hello React!</p>
+        <Suspense fallback={<div>loading...</div>}>
+          {visible && <SplitMe />}
+        </Suspense>
+      </header>
+    </div>
+  );
 }
 
 export default App;
