@@ -3,7 +3,7 @@
  * 19.2 React.lazy 와 Suspense를 통한 컴포넌트 코드 스플리팅
  * 19.2.1 state를 사용한 코드 스플리팅
  * 19.2.2 React.lazy와 Suspense 사용하기
- * 19.2.3 Loadable Components를 통한 코드 스플리팅 - 로딩 중 다른 UI 보여주기
+ * 19.2.3 Loadable Components를 통한 코드 스플리팅 - 로딩 중 다른 UI 보여주기 - preload
  */
 import React, { useState } from 'react';
 import logo from './logo.svg';
@@ -65,12 +65,17 @@ function App() {
   const onClick = () => {
     setVisible(true);
   };
+  const onMouseOver = () => {
+    SplitMe.preload();
+  };
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p onClick={onClick}>Hello React!</p>
+        <p onClick={onClick} onMouseOver={onMouseOver}>
+          Hello React!
+        </p>
         {/* <Suspense fallback={<div>loading...</div>}> */}
         {visible && <SplitMe />}
         {/* </Suspense> */}
