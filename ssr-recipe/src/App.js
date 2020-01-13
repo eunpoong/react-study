@@ -4,6 +4,8 @@
  * 20.3 서버사이트 렌더링 구현하기
  * 20.3.4 서버코드 작성하기
  * 20.3.5 정적 파일 제공하기
+ * 20.4 데이터 로딩
+ * 20.4.1 redux-thunk 코드 준비하기
  */
 import React from 'react';
 import { Route } from 'react-router-dom';
