@@ -12,6 +12,7 @@
  * 20.4.5 스크립트로 스토어 초기 상태 주입하기
  * 20.4.6 redux-saga 코드 준비하기
  * 20.4.7 User, UserContainer 컴포넌트 준비하기
+ * 20.4.8 redux-saga를 위한 서버 사이드 렌더링 작업
  */
 import React from 'react';
 import { Route } from 'react-router-dom';
