@@ -8,6 +8,7 @@
  * 22.4 esm으로 ES 모듈 import/export 문법 사용하기
  * 22.5 데이터베이스 스키마와 모델
  * 22.7~8 데이터 생성, 조회, 삭제, 수정
+ * 22.9 요청 검증
  */
 require('dotenv').config();
 import Koa from 'koa';
