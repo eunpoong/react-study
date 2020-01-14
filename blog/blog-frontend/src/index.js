@@ -10,6 +10,7 @@
  * 24.3 헤더 컴포넌트 생성 및 로그인 유지
  * 25 프런트엔드 프로젝트: 글쓰기 기능 구현
  * 25.1 에디터 UI 구현하기
+ * 25.2 에디터 하단 컴포넌트 UI 구현하기
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
