@@ -13,6 +13,7 @@
  * 23.2 User 스키마/모델
  * 23.3 회원 인증 API 만들기
  * 23.4 토큰 발급 및 검증하기
+ * 23.5 posts API 에 회원인증시스템 도입하기
  */
 require('dotenv').config();
 import Koa from 'koa';
@@ -21,7 +22,6 @@ import bodyParser from 'koa-bodyparser';
 import mongoose from 'mongoose';
 
 import api from './api';
-import createFakeData from './createFakeData';
 import jwtMiddleware from './lib/jwtMiddleware';
 
 // 비구조화 할당을 통하여 process.env 내부 값에 대한 레퍼런스 만들기
