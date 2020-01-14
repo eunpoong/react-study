@@ -7,6 +7,7 @@
  * 24.2.4 회원가입 구현
  * 24.2.5 로그인 구현
  * 24.2.6 회원 인증 에러 처리하기
+ * 24.3 헤더 컴포넌트 생성 및 로그인 유지
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -19,6 +20,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './modules';
+import { tempSetUser, check } from './modules/user';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -26,7 +28,20 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
 
+function loadUser() {
+  try {
+    const user = localStorage.getItem('user');
+    if (!user) return; // 로그인 상태가 아니라면 아무것도 안함
+
+    store.dispatch(tempSetUser(user));
+    store.dispatch(check());
+  } catch (e) {
+    console.log('localStorage is not working');
+  }
+}
+
 sagaMiddleware.run(rootSaga);
+loadUser();
 
 ReactDOM.render(
   <Provider store={store}>
