@@ -8,6 +8,8 @@
  * 24.2.5 로그인 구현
  * 24.2.6 회원 인증 에러 처리하기
  * 24.3 헤더 컴포넌트 생성 및 로그인 유지
+ * 25 프런트엔드 프로젝트: 글쓰기 기능 구현
+ * 25.1 에디터 UI 구현하기
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
