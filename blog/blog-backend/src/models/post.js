@@ -1,14 +1,14 @@
-import { mongoose } from 'mongoose';
+import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
 const PostSchema = new Schema({
-  titie: String,
+  title: String,
   body: String,
   tags: [String], // 문자열로 이루어진 배열
   publishedDate: {
     type: Date,
-    defualt: Date.now, // 현재 날짜를 기본값으로 지정
+    default: Date.now, // 현재 날짜를 기본 값으로 지정
   },
 });
 
