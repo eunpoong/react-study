@@ -12,6 +12,7 @@
  * 22.10 페이지네이션 구현
  * 23.2 User 스키마/모델
  * 23.3 회원 인증 API 만들기
+ * 23.4 토큰 발급 및 검증하기
  */
 require('dotenv').config();
 import Koa from 'koa';
@@ -21,6 +22,7 @@ import mongoose from 'mongoose';
 
 import api from './api';
 import createFakeData from './createFakeData';
+import jwtMiddleware from './lib/jwtMiddleware';
 
 // 비구조화 할당을 통하여 process.env 내부 값에 대한 레퍼런스 만들기
 const { PORT, MONGO_URI } = process.env;
@@ -43,6 +45,7 @@ router.use('/api', api.routes()); // api 라우트 적용
 
 // 라우터 적용 전에 bodyParser 적용
 app.use(bodyParser());
+app.use(jwtMiddleware);
 
 // app 인스턴스에 라우터 적용
 app.use(router.routes()).use(router.allowedMethods());
