@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.bubble.css';
 import styled from 'styled-components';
@@ -52,8 +52,8 @@ const Editor = ({ title, body, onChangeField }) => {
       },
     });
 
-    // quill에 test-change 이벤트 핸들러 등록
-    // 참고 : https://quilljs.com/docs/api/#events
+    // quill에 text-change 이벤트 핸들러 등록
+    // 참고: https://quilljs.com/docs/api/#events
     const quill = quillInstance.current;
     quill.on('text-change', (delta, oldDelta, source) => {
       if (source === 'user') {

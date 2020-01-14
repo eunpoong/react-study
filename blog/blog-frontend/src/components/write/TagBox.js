@@ -8,7 +8,7 @@ const TagBoxBlock = styled.div`
   padding-top: 2rem;
 
   h4 {
-    color: ${palette.gray[8]};
+    color: ${palette.gray[8]}
     margin-top: 0;
     margin-bottom: 0.5rem;
   }
@@ -26,6 +26,7 @@ const TagForm = styled.form`
     border: none;
     font-size: 1rem;
   }
+
   input {
     padding: 0.5rem;
     flex: 1;
@@ -60,7 +61,7 @@ const TagListBlock = styled.div`
 `;
 
 // React.memo를 사용하여 tag 값이 바뀔 때만 리렌더링되도록 처리
-const TagItem = React.memo(({ tag, onRemove }) => (
+const TagItem = React.memo(({ tag, onRemove, onChangeTags }) => (
   <Tag onClick={() => onRemove(tag)}>#{tag}</Tag>
 ));
 
@@ -82,11 +83,12 @@ const TagBox = ({ tags, onChangeTags }) => {
       if (!tag) return; // 공백이라면 추가하지 않음
       if (localTags.includes(tag)) return; // 이미 존재한다면 추가하지 않음
       const nextTags = [...localTags, tag];
-      setLocalTags([...localTags, tag]);
+      setLocalTags(nextTags);
       onChangeTags(nextTags);
     },
     [localTags, onChangeTags],
   );
+
   const onRemove = useCallback(
     tag => {
       const nextTags = localTags.filter(t => t !== tag);
@@ -103,7 +105,7 @@ const TagBox = ({ tags, onChangeTags }) => {
   const onSubmit = useCallback(
     e => {
       e.preventDefault();
-      insertTag(input.trim()); // 앞뒤 공백을 없앤 후 등록
+      insertTag(input.trim()); // 앞뒤 공백 없앤 후 등록
       setInput(''); // input 초기화
     },
     [input, insertTag],
@@ -119,7 +121,7 @@ const TagBox = ({ tags, onChangeTags }) => {
       <h4>태그</h4>
       <TagForm onSubmit={onSubmit}>
         <input
-          placeholoder="태그를 입력하세요"
+          placeholder="태그를 입력하세요"
           value={input}
           onChange={onChange}
         />

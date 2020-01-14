@@ -9,13 +9,10 @@ const EditorContainer = () => {
     title: write.title,
     body: write.body,
   }));
-  const onChangeField = useCallback(
-    payload => {
-      dispatch(changeField(payload));
-    },
-    [dispatch],
-  );
-  // 언마운트 될 때 초기화
+  const onChangeField = useCallback(payload => dispatch(changeField(payload)), [
+    dispatch,
+  ]);
+  // 언마운트될 때 초기화
   useEffect(() => {
     return () => {
       dispatch(initialize());
