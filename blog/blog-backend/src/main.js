@@ -14,6 +14,7 @@
  * 23.3 회원 인증 API 만들기
  * 23.4 토큰 발급 및 검증하기
  * 23.5 posts API 에 회원인증시스템 도입하기
+ * 23.6 username/tags 로 포스트 필터링하기
  */
 require('dotenv').config();
 import Koa from 'koa';
