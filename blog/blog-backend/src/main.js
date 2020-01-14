@@ -10,6 +10,7 @@
  * 22.7~8 데이터 생성, 조회, 삭제, 수정
  * 22.9 요청 검증
  * 22.10 페이지네이션 구현
+ * 23.2 User 스키마/모델
  */
 require('dotenv').config();
 import Koa from 'koa';
