@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-//import bcrypt from 'bcrypt';
+//import bcrypt from 'bcrypt'; // 윈도우에서 bcrypt 설치 안되서 패스
 
 const UserSchema = new Schema({
   username: String,
@@ -19,6 +19,12 @@ UserSchema.methods.checkPassword = async function(password) {
     return false;
   }
   //return result; // true / false
+};
+
+UserSchema.methods.serialize = function() {
+  const data = this.toJSON();
+  delete data.hashedPassword;
+  return data;
 };
 
 UserSchema.statics.findByUsername = function(username) {

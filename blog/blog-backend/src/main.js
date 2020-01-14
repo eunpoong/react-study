@@ -11,6 +11,7 @@
  * 22.9 요청 검증
  * 22.10 페이지네이션 구현
  * 23.2 User 스키마/모델
+ * 23.3 회원 인증 API 만들기
  */
 require('dotenv').config();
 import Koa from 'koa';
