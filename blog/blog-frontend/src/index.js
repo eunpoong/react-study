@@ -4,6 +4,9 @@
  * 24.2.1 UI 준비하기
  * 24.2.2 리덕스로 폼 상태 관리하기
  * 24.2.3 API 연동하기
+ * 24.2.4 회원가입 구현
+ * 24.2.5 로그인 구현
+ * 24.2.6 회원 인증 에러 처리하기
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
