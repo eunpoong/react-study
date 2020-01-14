@@ -6,6 +6,7 @@
  * 21.5 Koa-router 사용하기
  * 22.3 mongoose의 설치 및 적용
  * 22.4 esm으로 ES 모듈 import/export 문법 사용하기
+ * 22.5 데이터베이스 스키마와 모델
  */
 require('dotenv').config();
 import Koa from 'koa';
