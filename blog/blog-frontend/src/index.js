@@ -1,5 +1,8 @@
 /**
  * 24.1 작업환경 준비하기
+ * 24.2 회원가입과 로그인 구현
+ * 24.2.1 UI 준비하기
+ * 24.2.2 리덕스로 폼 상태 관리하기
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
