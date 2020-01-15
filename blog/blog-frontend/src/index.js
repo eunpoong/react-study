@@ -17,6 +17,7 @@
  * 27.1 포스트 수정
  * 27.2 포스트 삭제
  * 27.3 react-helmet-async 로 meta 태그 설정하기
+ * 27.4 프로젝트 마무리
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
