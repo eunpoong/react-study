@@ -16,6 +16,7 @@
  * 26.2 포스트 목록 페이지 구현하기
  * 27.1 포스트 수정
  * 27.2 포스트 삭제
+ * 27.3 react-helmet-async 로 meta 태그 설정하기
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -29,6 +30,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './modules';
 import { tempSetUser, check } from './modules/user';
+import { HelmetProvider } from 'react-helmet-async';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -54,7 +56,9 @@ loadUser();
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
