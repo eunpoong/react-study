@@ -12,6 +12,8 @@
  * 25.1 에디터 UI 구현하기
  * 25.2 에디터 하단 컴포넌트 UI 구현하기
  * 25.3 리덕스로 글쓰기 상태 관리하기
+ * 26.1 포스트 읽기 페이지 구현하기
+ * 26.2 포스트 목록 페이지 구현하기
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';

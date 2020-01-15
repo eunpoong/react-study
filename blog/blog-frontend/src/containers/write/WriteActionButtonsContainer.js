@@ -43,4 +43,4 @@ const WriteActionButtonsContainer = ({ history }) => {
   return <WriteActionButtons onPublish={onPublish} onCancel={onCancel} />;
 };
 
-export default withRouter(WriteActionButtonsContainer); // 라우트가 아닌 컴포넌트에서도 history 객체 사용하기 위해 withRouter로 감쌈
+export default withRouter(WriteActionButtonsContainer);
