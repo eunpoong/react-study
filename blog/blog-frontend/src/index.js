@@ -15,6 +15,7 @@
  * 26.1 포스트 읽기 페이지 구현하기
  * 26.2 포스트 목록 페이지 구현하기
  * 27.1 포스트 수정
+ * 27.2 포스트 삭제
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
